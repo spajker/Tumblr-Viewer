@@ -1,4 +1,4 @@
-<span ng-if="vmv.error !== undefined || vmv.error !== null">
+<span ng-if="vmv.error == undefined || vmv.error == null">
 <div class="viewer-header">
   <h1>{{vmv.data.tumblelog.title}}</h1>
   <h3>{{vmv.data.tumblelog.name}}</h3>
@@ -20,6 +20,9 @@
   </div>
 </div>
 </span>
-<span ng-if="vmv.error===null">
-  <div class="alert alert-danger" role="alert">{{vmv.error}}</div>
+<span ng-if="vmv.error != undefined && vmv.error != null">
+  <div class="alert alert-danger" role="alert">
+    Error {{vmv.error.status}}.
+    Wrong username or other issue.
+  </div>
 </span>
