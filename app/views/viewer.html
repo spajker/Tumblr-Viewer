@@ -1,0 +1,25 @@
+<span ng-if="vmv.error !== undefined || vmv.error !== null">
+<div class="viewer-header">
+  <h1>{{vmv.data.tumblelog.title}}</h1>
+  <h3>{{vmv.data.tumblelog.name}}</h3>
+  <h4>{{vmv.data.tumblelog.description}}</h4>
+</div>
+<div id="posts">
+  <div ng-repeat="post in vmv.data.posts" class="well well-sm">
+    <p class="text-right">{{post.date}}</p>
+    <span ng-switch="post.type">
+      <p ng-switch-when="regular"><span ng-bind-html="post['regular-body']"></span></p>
+      <div ng-switch-when="photo" class="viewer-header">
+        <img ng-src="{{post['photo-url-250']}}">
+        <img ng-repeat="photo in post.photos" ng-src="{{photo['photo-url-250']}}" ng-if="$index != 0">
+      </div>
+      <p ng-switch-default>Click more to see {{post.type}}</p>
+    </span>
+    <p><a ng-href="{{post.url}}" target="_blank">More...</a></p>
+    <p><span ng-repeat="tag in post.tags">#{{tag}} </span></p>
+  </div>
+</div>
+</span>
+<span ng-if="vmv.error===null">
+  <div class="alert alert-danger" role="alert">{{vmv.error}}</div>
+</span>
