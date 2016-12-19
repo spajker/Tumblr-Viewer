@@ -12,7 +12,6 @@ angular.module('tumblrViewerApp')
     var callbackName = 'callback';
     this.getUserPosts = function (userName, start) {
       var url = apiUrl.replace('{userName}', userName)
-      // .replace('{jsonp_callback}', callbackName)
         .replace('{start}', start);
       return $http.jsonp(url, {jsonpCallbackParam: callbackName});
     };

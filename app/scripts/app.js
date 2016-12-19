@@ -5,6 +5,9 @@ angular
     'ngSanitize',
     'ui.router'
   ])
+  .config(['$qProvider', function ($qProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
+  }])
   .config(['$locationProvider', '$urlRouterProvider', '$stateProvider',
     function ($locationProvider, $urlRouterProvider, $stateProvider) {
       $locationProvider.hashPrefix('!');
