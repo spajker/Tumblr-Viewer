@@ -1,5 +1,5 @@
 {
-  "name": "yeomangeneratedproject",
+  "name": "tumblrViewer",
   "private": true,
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
